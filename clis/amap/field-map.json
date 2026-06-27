@@ -1,0 +1,32 @@
+{
+  "location": {
+    "meaning": "POI coordinate as AMap.LngLat object — .lng/.lat are GCJ-02 (高德/AutoNavi 火星坐标), numeric. NOT WGS-84. Extract inside page context; LngLat does not serialize to Node as an array.",
+    "verified_at": "2026-06-27",
+    "source": "eyeballed Starbucks(人民公园店) 121.470875,31.231675 against People's Square Shanghai pin — matches GCJ-02, ~150m off WGS-84 as expected"
+  },
+  "type": {
+    "meaning": "category chain, semicolon-separated, e.g. '餐饮服务;咖啡厅;星巴克咖啡'",
+    "verified_at": "2026-06-27",
+    "source": "PlaceSearch extensions:all"
+  },
+  "adname": {
+    "meaning": "district name (区), e.g. '黄浦区'",
+    "verified_at": "2026-06-27",
+    "source": "PlaceSearch extensions:all"
+  },
+  "rating": {
+    "meaning": "user rating 0-5 as string, e.g. '4.6' (present only with extensions:all; may be '' )",
+    "verified_at": "2026-06-27",
+    "source": "PlaceSearch extensions:all"
+  },
+  "cost": {
+    "meaning": "per-person price 人均 as string yuan, e.g. '30.00' (extensions:all, may be '')",
+    "verified_at": "2026-06-27",
+    "source": "PlaceSearch extensions:all"
+  },
+  "id": {
+    "meaning": "POI id (B-prefixed), used for detail url https://www.amap.com/place/{id}",
+    "verified_at": "2026-06-27",
+    "source": "PlaceSearch"
+  }
+}

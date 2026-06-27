@@ -1,0 +1,21 @@
+{
+  "placeSearch": {
+    "url": "window.AMap.PlaceSearch (JSAPI 2.0, in-page)",
+    "method": "page-runtime (not a direct HTTP endpoint)",
+    "params": {
+      "required": ["keyword"],
+      "optional": ["city", "citylimit", "pageSize", "pageIndex", "extensions"]
+    },
+    "response": "callback(status, result) -> result.poiList.pois[] ; each poi: {id, name, type, location(AMap.LngLat .lng/.lat GCJ-02), address, tel, adname, pname, cityname, rating, cost, website, photos[]}",
+    "verified_at": "2026-06-27",
+    "notes": "Strategy=INTERCEPT/browser. Drive www.amap.com (loads JSAPI w/ site's embedded web key), then run AMap.PlaceSearch in page context. extensions:'all' adds rating+adname(district)+cost+website. status 'complete'|'no_data'|'error'. NO user key needed. Raw Node fetch of /service/poiInfo & /service/poiTipsSearchlite HANGS (page-signed) — do NOT replay them. location is an AMap.LngLat OBJECT (.lng/.lat), must extract coords inside page.evaluate (does not serialize back as array)."
+  },
+  "poiTipsSearchlite_DO_NOT_USE": {
+    "url": "https://www.amap.com/service/poiTipsSearchlite",
+    "method": "GET",
+    "params": { "required": ["words"], "optional": ["city", "geoobj"] },
+    "response": "autocomplete tips (fires on type); body not captured by daemon, raw replay hangs (needs page request signing)",
+    "verified_at": "2026-06-27",
+    "notes": "Recorded for reference only. Fires naturally when typing into search box. Raw fetch from Node/eval hangs. Use AMap.PlaceSearch instead."
+  }
+}

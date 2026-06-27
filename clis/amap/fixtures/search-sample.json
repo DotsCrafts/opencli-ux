@@ -1,0 +1,67 @@
+[
+  {
+    "rank": 1,
+    "poiId": "B00155H8SM",
+    "name": "星巴克(人民公园店)",
+    "lng": 121.470875,
+    "lat": 31.231675,
+    "rating": 4.6,
+    "category": "餐饮服务;咖啡厅;星巴克咖啡",
+    "tel": "021-63271930",
+    "district": "黄浦区",
+    "address": "南京西路189号(近人民广场9号出口)",
+    "url": "https://www.amap.com/place/B00155H8SM"
+  },
+  {
+    "rank": 2,
+    "poiId": "B0JUTAWJV5",
+    "name": "Crave Bakery&Coffee",
+    "lng": 121.477875,
+    "lat": 31.229975,
+    "rating": 4.6,
+    "category": "餐饮服务;糕饼店;糕饼店",
+    "tel": "13817025184",
+    "district": "黄浦区",
+    "address": "西藏中路88号(人民广场地铁站1号口步行270米)",
+    "url": "https://www.amap.com/place/B0JUTAWJV5"
+  },
+  {
+    "rank": 3,
+    "poiId": "B0HKOAD2KK",
+    "name": "Marmalade",
+    "lng": 121.47814,
+    "lat": 31.230262,
+    "rating": 4.6,
+    "category": "餐饮服务;餐饮相关场所;餐饮相关",
+    "tel": "18555966310",
+    "district": "黄浦区",
+    "address": "北海路261号(人民广场地铁站1号口步行270米)",
+    "url": "https://www.amap.com/place/B0HKOAD2KK"
+  },
+  {
+    "rank": 4,
+    "poiId": "B0FFKKQ5G5",
+    "name": "Tims天好咖啡(中区广场店)",
+    "lng": 121.470685,
+    "lat": 31.229282,
+    "rating": 4.5,
+    "category": "餐饮服务;咖啡厅;咖啡厅",
+    "tel": "021-63353866",
+    "district": "黄浦区",
+    "address": "黄陂北路227号中区广场1层02店铺",
+    "url": "https://www.amap.com/place/B0FFKKQ5G5"
+  },
+  {
+    "rank": 5,
+    "poiId": "B0FFL645J5",
+    "name": "石藤咖啡(人民广场店)",
+    "lng": 121.470633,
+    "lat": 31.228281,
+    "rating": 4.6,
+    "category": "餐饮服务;咖啡厅;咖啡厅",
+    "tel": "18721439961",
+    "district": "黄浦区",
+    "address": "威海路20-2号",
+    "url": "https://www.amap.com/place/B0FFL645J5"
+  }
+]

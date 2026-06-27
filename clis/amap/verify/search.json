@@ -1,0 +1,27 @@
+{
+  "args": ["咖啡", "--city", "上海", "--limit", "5"],
+  "expect": {
+    "rowCount": { "min": 1, "max": 5 },
+    "columns": ["rank", "poiId", "name", "lng", "lat", "rating", "category", "tel", "district", "address", "url"],
+    "types": {
+      "rank": "number",
+      "poiId": "string",
+      "name": "string",
+      "lng": "number",
+      "lat": "number",
+      "rating": "number|null",
+      "category": "string",
+      "tel": "string",
+      "district": "string",
+      "address": "string",
+      "url": "string"
+    },
+    "patterns": {
+      "poiId": "^[A-Z0-9]{8,}$",
+      "url": "^https://www\\.amap\\.com/place/",
+      "lng": "^12[0-2]\\.",
+      "lat": "^3[01]\\."
+    },
+    "notEmpty": ["name", "lng", "lat", "url", "poiId"]
+  }
+}
