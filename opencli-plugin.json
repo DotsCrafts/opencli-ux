@@ -1,0 +1,6 @@
+{
+  "name": "ux",
+  "version": "0.1.0",
+  "description": "opencli ux — the interaction layer between opencli and the user: render UI specs in an isolated browser tab and capture form/confirm input via a one-time-token callback. json-render is the rendering engine (ux-app/dist); a built-in minimal renderer is the zero-dep fallback.",
+  "opencli": ">=1.8.4"
+}

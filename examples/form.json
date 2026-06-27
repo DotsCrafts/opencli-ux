@@ -1,0 +1,6 @@
+{ "title": "选收藏 / 补条件",
+  "fields": [
+    {"name":"fav","type":"multiselect","label":"收藏","options":["Seesaw Coffee","M Stand"]},
+    {"name":"note","type":"text","label":"备注"},
+    {"name":"radius","type":"number","label":"半径(km)"} ],
+  "submitLabel": "提交" }

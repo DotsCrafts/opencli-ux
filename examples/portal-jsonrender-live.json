@@ -1,0 +1,451 @@
+{
+  "root": "root",
+  "state": {
+    "query": "codex",
+    "status": {
+      "crypto": "idle",
+      "arxiv": "idle",
+      "kr": "idle",
+      "weather": "idle",
+      "search": "idle"
+    },
+    "error": {},
+    "data": {}
+  },
+  "elements": {
+    "search": {
+      "type": "SearchPanel",
+      "props": {
+        "title": "全网聚合搜索",
+        "placeholder": "试试 codex / 火锅 / 电动车…",
+        "source": "agg search",
+        "queryPath": "/query",
+        "queryValue": {
+          "$state": "/query"
+        },
+        "status": {
+          "$state": "/status/search"
+        },
+        "errorText": {
+          "$state": "/error/search"
+        },
+        "items": {
+          "$state": "/data/search"
+        }
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "search",
+            "queryPath": "/query",
+            "request": {
+              "site": "agg",
+              "command": "search",
+              "positional": [],
+              "args": {
+                "limit": 10,
+                "only": "api"
+              }
+            }
+          }
+        },
+        "search": {
+          "action": "ux_data",
+          "params": {
+            "key": "search",
+            "queryPath": "/query",
+            "request": {
+              "site": "agg",
+              "command": "search",
+              "positional": [],
+              "args": {
+                "limit": 10,
+                "only": "api"
+              }
+            }
+          }
+        }
+      }
+    },
+    "refreshCrypto": {
+      "type": "Button",
+      "props": {
+        "label": "刷新币价",
+        "variant": "secondary"
+      },
+      "on": {
+        "press": {
+          "action": "ux_data",
+          "params": {
+            "key": "crypto",
+            "request": {
+              "site": "coingecko",
+              "command": "top",
+              "args": {
+                "limit": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "autoCrypto": {
+      "type": "Text",
+      "props": {
+        "text": "",
+        "variant": "caption"
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "crypto",
+            "request": {
+              "site": "coingecko",
+              "command": "top",
+              "args": {
+                "limit": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "refreshArxiv": {
+      "type": "Button",
+      "props": {
+        "label": "刷新 arXiv",
+        "variant": "secondary"
+      },
+      "on": {
+        "press": {
+          "action": "ux_data",
+          "params": {
+            "key": "arxiv",
+            "request": {
+              "site": "arxiv",
+              "command": "recent",
+              "positional": [
+                "cs.AI"
+              ],
+              "args": {
+                "limit": 6
+              }
+            }
+          }
+        }
+      }
+    },
+    "autoArxiv": {
+      "type": "Text",
+      "props": {
+        "text": "",
+        "variant": "caption"
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "arxiv",
+            "request": {
+              "site": "arxiv",
+              "command": "recent",
+              "positional": [
+                "cs.AI"
+              ],
+              "args": {
+                "limit": 6
+              }
+            }
+          }
+        }
+      }
+    },
+    "refreshKr": {
+      "type": "Button",
+      "props": {
+        "label": "刷新 36氪",
+        "variant": "secondary"
+      },
+      "on": {
+        "press": {
+          "action": "ux_data",
+          "params": {
+            "key": "kr",
+            "request": {
+              "site": "36kr",
+              "command": "news",
+              "args": {
+                "limit": 6
+              }
+            }
+          }
+        }
+      }
+    },
+    "autoKr": {
+      "type": "Text",
+      "props": {
+        "text": "",
+        "variant": "caption"
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "kr",
+            "request": {
+              "site": "36kr",
+              "command": "news",
+              "args": {
+                "limit": 6
+              }
+            }
+          }
+        }
+      }
+    },
+    "refreshWeather": {
+      "type": "Button",
+      "props": {
+        "label": "刷新天气",
+        "variant": "secondary"
+      },
+      "on": {
+        "press": {
+          "action": "ux_data",
+          "params": {
+            "key": "weather",
+            "request": {
+              "site": "wttr",
+              "command": "current",
+              "positional": [
+                "Shanghai"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "autoWeather": {
+      "type": "Text",
+      "props": {
+        "text": "",
+        "variant": "caption"
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "weather",
+            "request": {
+              "site": "wttr",
+              "command": "current",
+              "positional": [
+                "Shanghai"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm",
+        "align": "center",
+        "justify": "center",
+        "className": "ux-refresh-row"
+      },
+      "children": [
+        "refreshCrypto",
+        "refreshArxiv",
+        "refreshKr",
+        "refreshWeather",
+        "autoCrypto",
+        "autoArxiv",
+        "autoKr",
+        "autoWeather"
+      ]
+    },
+    "crypto": {
+      "type": "MetricGrid",
+      "props": {
+        "title": "币价 Top",
+        "eyebrow": "coingecko top",
+        "columns": 4,
+        "status": {
+          "$state": "/status/crypto"
+        },
+        "errorText": {
+          "$state": "/error/crypto"
+        },
+        "data": {
+          "$state": "/data/crypto"
+        },
+        "loadingText": "等待刷新币价…",
+        "emptyText": "点击刷新币价"
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "crypto",
+            "request": {
+              "site": "coingecko",
+              "command": "top",
+              "positional": [],
+              "args": {
+                "limit": 8
+              }
+            }
+          }
+        }
+      }
+    },
+    "arxiv": {
+      "type": "FeedList",
+      "props": {
+        "title": "arXiv · cs.AI",
+        "source": "arxiv recent",
+        "accent": "red",
+        "status": {
+          "$state": "/status/arxiv"
+        },
+        "errorText": {
+          "$state": "/error/arxiv"
+        },
+        "items": {
+          "$state": "/data/arxiv"
+        },
+        "loadingText": "等待刷新 arXiv…",
+        "emptyText": "点击刷新 arXiv"
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "arxiv",
+            "request": {
+              "site": "arxiv",
+              "command": "recent",
+              "positional": [
+                "cs.AI"
+              ],
+              "args": {
+                "limit": 8
+              }
+            }
+          }
+        }
+      }
+    },
+    "kr": {
+      "type": "FeedList",
+      "props": {
+        "title": "36氪 · 快讯",
+        "source": "36kr news",
+        "accent": "blue",
+        "status": {
+          "$state": "/status/kr"
+        },
+        "errorText": {
+          "$state": "/error/kr"
+        },
+        "items": {
+          "$state": "/data/kr"
+        },
+        "loadingText": "等待刷新 36氪…",
+        "emptyText": "点击刷新 36氪"
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "kr",
+            "request": {
+              "site": "36kr",
+              "command": "news",
+              "positional": [],
+              "args": {
+                "limit": 8
+              }
+            }
+          }
+        }
+      }
+    },
+    "weather": {
+      "type": "WeatherPanel",
+      "props": {
+        "title": "天气 · 上海",
+        "source": "wttr current",
+        "location": "Shanghai",
+        "status": {
+          "$state": "/status/weather"
+        },
+        "errorText": {
+          "$state": "/error/weather"
+        },
+        "emptyText": "点击刷新天气",
+        "data": {
+          "$state": "/data/weather"
+        }
+      },
+      "on": {
+        "mount": {
+          "action": "ux_data",
+          "params": {
+            "key": "weather",
+            "request": {
+              "site": "wttr",
+              "command": "current",
+              "positional": [
+                "Shanghai"
+              ],
+              "args": {}
+            }
+          }
+        }
+      }
+    },
+    "mainGrid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "lg",
+        "className": "ux-dashboard-grid"
+      },
+      "children": [
+        "arxiv",
+        "kr"
+      ]
+    },
+    "root": {
+      "type": "PortalShell",
+      "props": {
+        "title": "Render",
+        "accentText": "门户",
+        "subtitle": "opencli 内核驱动 · 数据实时拉取 · catalog-whitelisted json-render",
+        "tags": [
+          "B站排行",
+          "36氪",
+          "arXiv",
+          "币价",
+          "天气",
+          "聚合搜索"
+        ],
+        "footer": "Render Tier-2 门户 · /ux/data 只读 · FIFO · token + CSP"
+      },
+      "children": [
+        "search",
+        "actions",
+        "crypto",
+        "weather",
+        "mainGrid"
+      ]
+    }
+  }
+}

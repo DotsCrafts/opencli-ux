@@ -1,0 +1,9 @@
+{
+  "name": "opencli-plugin-ux",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "opencli ux — interaction layer (render/form/confirm) between opencli and the user",
+  "peerDependencies": {
+    "@jackwener/opencli": ">=1.8.4"
+  }
+}
